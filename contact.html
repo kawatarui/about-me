@@ -1,0 +1,25 @@
+<main>
+    <section class="contact-info-section">
+        <h2>お問い合わせ</h2>
+        <p>ご質問やご依頼がありましたら、下記フォームよりお気軽にご連絡ください。</p>
+        <p>または、以下のSNSでもご連絡いただけます。</p>
+        <ul>
+            <li>メールアドレス: <a href="mailto:ktc25a31g0004@edu.kyoto-tech.ac.jp">ktc25a31g0004@edu.kyoto-tech.ac.jp</a></li>
+        </ul>
+    </section>
+
+    <section class="contact-form-section">
+        <h3>お問い合わせフォーム</h3>
+        <form action="submit_form.php" method="POST"> <label for="name">お名前:</label>
+            <input type="text" id="name" name="user_name" required>
+
+            <label for="email">メールアドレス:</label>
+            <input type="email" id="email" name="user_email" required>
+
+            <label for="message">メッセージ:</label>
+            <textarea id="message" name="user_message" rows="5" required></textarea>
+
+            <button type="submit">送信</button>
+        </form>
+    </section>
+</main>

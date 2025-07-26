@@ -3,39 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
-		<!-- reset.css ress -->
-		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel="stylesheet" href="css/styles.css">
+    <title>あなたの名前 - ポートフォリオ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="body">
-    <header class="header">
-        <nav class="nav">
+<body>
+    <header>
+        <nav>
             <ul>
-                <li><a href="#profile">プロフィール</a></li>
-                <li><a href="#hobbies">趣味</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <h1>わたしの自己紹介サイト</h1>
     </header>
+
     <main>
-        <section id="profile">
-            <h2>プロフィール</h2>
-            <p>こんにちは。私は河田琉生です。これは私の自己紹介サイトです。</p>
+        <section id="hero" class="hero-section" data-aos="fade-up">
+            <h1>Hello, I'm [あなたの名前]</h1>
+            <p>Web Developer & Designer</p>
         </section>
-        <section id="hobbies">
-            <h2>趣味</h2>
-            <ul>
-                <li>ゲーム</li>
-                <li>旅行</li>
-                <li>スノーボード</li>
+
+        <section id="about" class="about-section" data-aos="fade-up">
+            <h2>About Me</h2>
+            <img src="images/profile.jpg" alt="プロフィール写真" class="profile-image">
+            <p>ここにあなたの詳細な自己紹介文を書きます。</p>
+            <p>経歴や趣味など。</p>
+        </section>
+
+        <section id="skills" class="skills-section" data-aos="fade-up">
+            <h2>Skills</h2>
+            <div class="skill-list">
+                <div class="skill-item">HTML/CSS</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">UI/UX Design</div>
+                </div>
+        </section>
+
+        <section id="works" class="works-section" data-aos="fade-up">
+            <h2>Works</h2>
+            <div class="work-grid">
+                <a href="[プロジェクト1のURL]" target="_blank" class="work-item" data-aos="fade-up">
+                    <img src="images/work1.jpg" alt="プロジェクト1">
+                    <h3>Project Title 1</h3>
+                    <p>簡単な説明</p>
+                </a>
+                <a href="[プロジェクト2のURL]" target="_blank" class="work-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/work2.jpg" alt="プロジェクト2">
+                    <h3>Project Title 2</h3>
+                    <p>簡単な説明</p>
+                </a>
+                </div>
+        </section>
+
+        <section id="contact" class="contact-section" data-aos="fade-up">
+            <h2>Contact</h2>
+            <p>お問い合わせはこちらから。</p>
+            <ul class="contact-links">
+                <li><a href="mailto:your_email@example.com">Email</a></li>
+                <li><a href="https://twitter.com/your_twitter" target="_blank">X (Twitter)</a></li>
+                <li><a href="https://linkedin.com/in/your_linkedin" target="_blank">LinkedIn</a></li>
             </ul>
         </section>
     </main>
-    <footer class="footer">
-        <p>&copy; 2024 わたしの自己紹介サイト</p>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
     </footer>
-    <script src="js/scripts.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init(); // AOSを初期化
+    </script>
 </body>
 </html>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
