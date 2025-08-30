@@ -50,11 +50,6 @@
                 </form>
                 
                 <div class="contact-info">
-                    <h3>直接連絡先</h3>
-                    <p>フォームが使えない場合は、直接メールでご連絡ください。</p>
-                    <p>
-                        <a href="mailto:kawata.rui@example.com" class="contact-link">
-                            kawata.rui@example.com
                         </a>
                     </p>
                     
@@ -62,21 +57,41 @@
                     <ul>
                         <li><a href="#" target="_blank">Twitter</a></li>
                         <li><a href="#" target="_blank">GitHub</a></li>
-                        <li><a href="#" target="_blank">LinkedIn</a></li>
                     </ul>
                     
                     <h3>お問い合わせについて</h3>
                     <p>以下のような内容でお気軽にご連絡ください：</p>
                     <ul>
                         <li>Web制作のご相談</li>
-                        <li>プログラミングに関する質問</li>
-                        <li>コラボレーションのご提案</li>
+                        <li>技術的な問題</li>
                         <li>その他、何でもお気軽に</li>
                     </ul>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- BGM Player -->
+    <div class="bgm-player" id="bgm-player">
+        <div class="bgm-controls">
+            <button class="bgm-toggle" id="bgm-toggle" aria-label="BGMの再生・停止">
+                <span class="play-icon">🎵</span>
+                <span class="pause-icon">⏸️</span>
+            </button>
+            <div class="volume-control">
+                <button class="volume-button" id="volume-button" aria-label="音量調整">🔊</button>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="50">
+            </div>
+            <div class="track-info">
+                <span class="track-title" id="track-title">BGM</span>
+            </div>
+        </div>
+        <audio id="bgm-audio" preload="auto" loop>
+            <source src="audio/bgm-main.mp3" type="audio/mpeg">
+            <source src="audio/bgm-main.ogg" type="audio/ogg">
+            お使いのブラウザはオーディオタグをサポートしていません。
+        </audio>
+    </div>
 
     <footer class="footer">
         <div class="container">
