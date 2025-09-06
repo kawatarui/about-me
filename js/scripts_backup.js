@@ -82,6 +82,8 @@ document.querySelectorAll('.nav a').forEach(link => {
     });
 });
 
+// 追加のアニメーション機能
+
 // スクロールプログレスバーの作成
 function createScrollProgress() {
     const progressBar = document.createElement('div');
@@ -319,6 +321,57 @@ function initImageModal() {
     });
 }
 
+// EmailJS設定（EmailJSを使用する場合）
+function initEmailJS() {
+    // EmailJSの初期化（実際のPublic Keyに置き換えてください）
+    // emailjs.init("YOUR_PUBLIC_KEY");
+    
+    const contactForm = document.querySelector('.contact-form');
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', function(e) {
+        // Netlify Formsを使用している場合はEmailJSは無効化
+        if (contactForm.hasAttribute('data-netlify')) {
+            return; // Netlify Formsに任せる
+        }
+        
+        e.preventDefault();
+        
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        
+        // ローディング状態
+        submitBtn.textContent = '送信中...';
+        submitBtn.disabled = true;
+        
+        // EmailJSでメール送信（実際のService IDとTemplate IDに置き換えてください）
+        /*
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                
+                // 成功時の処理
+                showNotification('メッセージが送信されました！', 'success');
+                contactForm.reset();
+                
+                // ボタンを元に戻す
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+            }, function(error) {
+                console.log('FAILED...', error);
+                
+                // エラー時の処理
+                showNotification('送信に失敗しました。もう一度お試しください。', 'error');
+                
+                // ボタンを元に戻す
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        */
+    });
+}
+
 // 通知表示機能
 function showNotification(message, type = 'info') {
     // 既存の通知を削除
@@ -446,23 +499,399 @@ function enhanceFormValidation() {
     }
 }
 
-// アニメーション初期化
+// 新しい動的エフェクト
+
+// 量子パーティクル生成
+function createQuantumParticles() {
+    const container = document.createElement('div');
+    container.className = 'quantum-particles';
+    container.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    `;
+    
+    document.body.appendChild(container);
+    
+    function generateParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'quantum-particle';
+        
+        const size = Math.random() * 4 + 2;
+        const startX = Math.random() * window.innerWidth;
+        const endX = startX + (Math.random() - 0.5) * 200;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.cssText = `
+            left: ${startX}px;
+            width: ${size}px;
+            height: ${size}px;
+            animation: quantumFloat ${duration}s linear infinite;
+            animation-delay: ${delay}s;
+            background: radial-gradient(circle, 
+                hsl(${Math.random() * 60 + 240}, 70%, 60%), 
+                transparent);
+        `;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+            }
+        }, (duration + delay) * 1000);
+    }
+    
+    // パーティクルを定期的に生成
+    setInterval(generateParticle, 500);
+}
+
+// マウス追従エフェクト
+function initMouseTrail() {
+    const trail = [];
+    const trailLength = 20;
+    
+    document.addEventListener('mousemove', (e) => {
+        trail.push({
+            x: e.clientX,
+            y: e.clientY,
+            time: Date.now()
+        });
+        
+        if (trail.length > trailLength) {
+            trail.shift();
+        }
+        
+        updateTrail();
+    });
+    
+    function updateTrail() {
+        // 既存のトレイル要素を削除
+        document.querySelectorAll('.mouse-trail').forEach(el => el.remove());
+        
+        trail.forEach((point, index) => {
+            const trailElement = document.createElement('div');
+            trailElement.className = 'mouse-trail';
+            
+            const opacity = index / trailLength;
+            const size = (index / trailLength) * 10 + 2;
+            
+            trailElement.style.cssText = `
+                position: fixed;
+                left: ${point.x - size/2}px;
+                top: ${point.y - size/2}px;
+                width: ${size}px;
+                height: ${size}px;
+                background: radial-gradient(circle, 
+                    rgba(139, 92, 246, ${opacity}), 
+                    transparent);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                transform: scale(${opacity});
+            `;
+            
+            document.body.appendChild(trailElement);
+            
+            setTimeout(() => {
+                if (trailElement.parentNode) {
+                    trailElement.remove();
+                }
+            }, 1000);
+        });
+    }
+}
+
+// テキストタイピングエフェクト
+function initTypingEffect() {
+    const typingElements = document.querySelectorAll('.typing-text');
+    
+    typingElements.forEach(element => {
+        const text = element.textContent;
+        element.textContent = '';
+        element.style.borderRight = '2px solid #8b5cf6';
+        
+        let i = 0;
+        const timer = setInterval(() => {
+            element.textContent += text[i];
+            i++;
+            
+            if (i >= text.length) {
+                clearInterval(timer);
+                setTimeout(() => {
+                    element.style.borderRight = 'none';
+                }, 1000);
+            }
+        }, 100);
+    });
+}
+
+// グリッチエフェクト（クリック時）
+function initGlitchEffect() {
+    const glitchElements = document.querySelectorAll('h1, h2, h3');
+    
+    glitchElements.forEach(element => {
+        element.addEventListener('click', () => {
+            const originalText = element.textContent;
+            element.setAttribute('data-text', originalText);
+            element.classList.add('glitch');
+            
+            setTimeout(() => {
+                element.classList.remove('glitch');
+                element.removeAttribute('data-text');
+            }, 1000);
+        });
+    });
+}
+
+// 磁気場エフェクト
+function initMagneticEffect() {
+    const magneticElements = document.querySelectorAll('.hobby-section, .location-section, .cta-button');
+    
+    magneticElements.forEach(element => {
+        element.classList.add('magnetic-field');
+        
+        element.addEventListener('mouseenter', (e) => {
+            element.style.transform = 'scale(1.02) rotate(1deg)';
+        });
+        
+        element.addEventListener('mouseleave', (e) => {
+            element.style.transform = 'scale(1) rotate(0deg)';
+        });
+        
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            const rotateX = (y / rect.height) * 5;
+            const rotateY = (x / rect.width) * -5;
+            
+            element.style.transform = `
+                scale(1.02) 
+                rotateX(${rotateX}deg) 
+                rotateY(${rotateY}deg)
+                translateZ(10px)
+            `;
+        });
+    });
+}
+
+// 液体ブロブエフェクト
+function createLiquidBlobs() {
+    const blobContainer = document.createElement('div');
+    blobContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    `;
+    
+    document.body.appendChild(blobContainer);
+    
+    for (let i = 0; i < 5; i++) {
+        const blob = document.createElement('div');
+        blob.className = 'liquid-blob';
+        
+        const size = Math.random() * 200 + 100;
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        const duration = Math.random() * 20 + 10;
+        
+        blob.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            opacity: 0.1;
+            animation: liquidMorph ${duration}s ease-in-out infinite,
+                       liquidFloat ${duration * 2}s ease-in-out infinite;
+        `;
+        
+        blobContainer.appendChild(blob);
+    }
+    
+    // 液体フロートアニメーション用CSS追加
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes liquidFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -30px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(30px, 30px) scale(1.05); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// 画面分割エフェクト
+function initScreenSplitEffect() {
+    const sections = document.querySelectorAll('.section');
+    
+    sections.forEach((section, index) => {
+        section.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%)';
+        section.style.transition = 'clip-path 0.8s ease-in-out';
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // ランダムな分割パターン
+                    const patterns = [
+                        'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                        'polygon(0 0, 100% 0, 95% 100%, 5% 100%)',
+                        'polygon(5% 0, 100% 0, 100% 100%, 0 100%)',
+                        'polygon(0 0, 95% 0, 100% 100%, 5% 100%)'
+                    ];
+                    
+                    entry.target.style.clipPath = patterns[index % patterns.length];
+                } else {
+                    entry.target.style.clipPath = 'polygon(50% 0, 50% 0, 50% 100%, 50% 100%)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(section);
+    });
+}
+
+// オーロラカーテンエフェクト
+function createAuroraCurtain() {
+    const aurora = document.createElement('div');
+    aurora.className = 'aurora';
+    aurora.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.3;
+        mix-blend-mode: overlay;
+    `;
+    
+    document.body.appendChild(aurora);
+}
+
+// 時空歪みエフェクト
+function initSpacetimeWarp() {
+    const warpElements = document.querySelectorAll('.hero, .about-page .section:first-of-type');
+    
+    warpElements.forEach(element => {
+        element.classList.add('spacetime-warp');
+        
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = 'perspective(1000px) rotateX(5deg) rotateY(5deg)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+    });
+}
+
+// パララックス強化
+function enhancedParallax() {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        // 背景要素のパララックス
+        const parallaxElements = document.querySelectorAll('.floating-shapes, .quantum-particles');
+        parallaxElements.forEach(element => {
+            element.style.transform = `translateY(${rate}px)`;
+        });
+        
+        // セクションの微細な動き
+        const sections = document.querySelectorAll('.section');
+        sections.forEach((section, index) => {
+            const speed = (index + 1) * 0.1;
+            section.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+}
+
+// 3D Transform エフェクト
+function init3DTransforms() {
+    const transform3DElements = document.querySelectorAll('.hobby-img, .location-img');
+    
+    transform3DElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = `
+                perspective(1000px) 
+                rotateY(15deg) 
+                rotateX(10deg) 
+                translateZ(20px)
+                scale(1.05)
+            `;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px) scale(1)';
+        });
+    });
+}
+
+// すべてのアニメーションの初期化
 document.addEventListener('DOMContentLoaded', function() {
-    // 基本機能の初期化
+    // 既存のコード...
+    
+    // 新しいエフェクトを初期化
     createScrollProgress();
     initScrollAnimations();
-    initImageModal();
-    enhanceFormValidation();
+    createParticles();
+    animateCounters();
     addRippleEffect();
     initBackgroundAnimation();
+    initParallax();
+    init3DCards();
     
-    // デスクトップのみで有効化するエフェクト
-    if (window.innerWidth > 768) {
-        createParticles();
-        animateCounters();
-        initParallax();
-        init3DCards();
+    // 画像モーダル機能を初期化
+    initImageModal();
+    
+    // フォーム機能を初期化
+    initEmailJS();
+    enhanceFormValidation();
+    
+    // 新しいエフェクトを初期化
+    if (window.innerWidth > 768) { // デスクトップのみ
+        createQuantumParticles();
+        initMouseTrail();
+        createLiquidBlobs();
+        createAuroraCurtain();
     }
+    
+    initTypingEffect();
+    initGlitchEffect();
+    initMagneticEffect();
+    initScreenSplitEffect();
+    initSpacetimeWarp();
+    enhancedParallax();
+    init3DTransforms();
+    
+    // ページロード完了後の追加効果
+    setTimeout(() => {
+        document.body.style.overflow = 'visible';
+        
+        // ホログラフィック効果を見出しに適用
+        const titles = document.querySelectorAll('h1, h2');
+        titles.forEach(title => {
+            if (!title.classList.contains('holographic')) {
+                title.classList.add('holographic');
+            }
+        });
+        
+    }, 1000);
 });
 
 // ウィンドウリサイズ時の処理

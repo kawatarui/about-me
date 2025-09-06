@@ -494,12 +494,6 @@ body {
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
-    animation: titleGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow {
-    from { text-shadow: 0 0 10px rgba(124, 58, 237, 0.5); }
-    to { text-shadow: 0 0 20px rgba(124, 58, 237, 0.8), 0 0 30px rgba(124, 58, 237, 0.4); }
 }
 
 .about-page .profile {
@@ -706,18 +700,6 @@ body {
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
-    animation: titlePulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes titlePulse {
-    from { 
-        text-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
-        transform: scale(1);
-    }
-    to { 
-        text-shadow: 0 0 25px rgba(124, 58, 237, 0.9), 0 0 35px rgba(124, 58, 237, 0.5);
-        transform: scale(1.02);
-    }
 }
 
 /* フォームの強化 */
@@ -1787,5 +1769,244 @@ contact-page .hamburger-line {
     
     .location-content p {
         font-size: 1em;
+    }
+}
+
+/* 画像拡大モーダル */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-modal.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.image-modal.active .modal-content {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* クリック可能な画像にカーソル変更 */
+.location-img,
+.hobby-img {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-img:hover,
+.hobby-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    
+    .modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .modal-caption {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+/* 送信完了ページのスタイル */
+.success-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(254, 251, 255, 0.95) 0%, rgba(250, 245, 255, 0.95) 100%);
+    border-radius: 25px;
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
+    animation: successSlideIn 0.8s ease-out;
+}
+
+@keyframes successSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.success-icon {
+    margin: 0 auto 2rem auto;
+    animation: successBounce 1s ease-out 0.3s both;
+}
+
+@keyframes successBounce {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-message h2 {
+    color: #10B981;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.success-message p {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin: 1rem 0;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.success-message p:first-of-type {
+    animation-delay: 0.7s;
+}
+
+.success-message p:last-of-type {
+    animation-delay: 0.9s;
+}
+
+.back-buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out 1.1s both;
+}
+
+.back-buttons .cta-button {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.back-buttons .cta-button.primary {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+    border-color: #10B981;
+}
+
+.back-buttons .cta-button.secondary {
+    background: transparent;
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+.back-buttons .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.back-buttons .cta-button.primary:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.back-buttons .cta-button.secondary:hover {
+    background: #8b5cf6;
+    color: white;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+@media (max-width: 480px) {
+    .back-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .back-buttons .cta-button {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
     }
 }

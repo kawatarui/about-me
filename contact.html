@@ -32,10 +32,16 @@
         <section class="section">
             <div class="container">
                 <h2>お問い合わせ</h2>
-                <p>ご質問やご連絡はこちらのフォームからお願いします。</p>
+                <p class="text-slide">ご質問やご連絡はこちらのフォームからお願いします。</p>
                 
                 <!-- お問い合わせフォーム -->
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks.html">
+                    <!-- スパム対策 -->
+                    <input type="hidden" name="form-name" value="contact">
+                    <div style="display: none;">
+                        <label>スパム対策（記入しないでください）: <input name="bot-field"></label>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="name">お名前 *</label>
                         <input type="text" id="name" name="name" required>
@@ -59,9 +65,7 @@
                     <button type="submit" class="submit-btn">送信する</button>
                 </form>
                 
-                <div class="contact-info">
-                        </a>
-                    </p>
+                <div class="contact-info">                               
                     
                     <h3>お問い合わせについて</h3>
                     <p>以下のような内容でお気軽にご連絡ください：</p>
@@ -80,6 +84,15 @@
             <p>&copy; 2025 河田琉生. All rights reserved.</p>
         </div>
     </footer>
+    
+    <!-- 画像拡大モーダル -->
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
     
     <script src="js/scripts.js"></script>
 </body>
