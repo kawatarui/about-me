@@ -9,121 +9,169 @@
 </head>
 <body class="about-page">
     <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="about.html">自己紹介</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">河田琉生</a>
+            </div>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="about.html">自己紹介</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="section">
             <div class="container">
                 <h2>自己紹介</h2>
-                <div class="profile">
-                    <img src="images/profile.jpg" alt="プロフィール画像" class="profile-img">
-                    <div class="profile-text">
-                        <p>こんにちは。私の名前は河田琉生です。</p>
-                        <p>長岡京市出身で、プログラミングやWeb制作が好きです。</p>
-                        <p>一時期鳥取県米子市にも住んでいたことがあり、様々な場所での経験を積んできました。</p>
-                    </div>
+                <div class="profile-text">
+                    <p>こんにちは。私の名前は河田琉生です！</p>
+                    <p>長岡京市出身で、様々な事に興味があります！</p>
+                    <p>一時期鳥取県米子市にも住んでいたことがあり、様々な場所での経験を積んできました。</p>
                 </div>
                 
                 <h3>基本情報</h3>
                 <ul>
                     <li>出身地: 長岡京市</li>
-                    <li>職業: Web Developer</li>
-                    <li>専門: プログラミング、Web制作</li>
+                    <li>専攻: スーパーITエンジニア専攻</li>
                 </ul>
                 
                 <h3>出身地の紹介</h3>
                 
                 <div class="location-section">
-                    <h4>🏠 長岡京市（出身地）</h4>
-                    <p>京都府長岡京市で生まれ育ちました。歴史と自然が豊かな素晴らしい街です！</p>
-                    <ul>
-                        <li>特徴: 京都と大阪の間にある便利な立地</li>
-                        <li>有名なもの: 竹林の道、長岡天満宮、筍（たけのこ）</li>
-                        <li>好きな場所: 長岡天満宮の梅園、西山公園</li>
-                        <li>思い出: 子供の頃よく家族と天満宮にお参りに行きました</li>
-                    </ul>
-                    <p>
-                        <a href="https://sense-nagaokakyo.city.nagaokakyo.lg.jp/" target="_blank" rel="noopener">
-                            長岡京市の公式サイトはこちら
-                        </a>
-                    </p>
+                    <div class="location-header">
+                        <h4>🏠 長岡京市（出身地）</h4>
+                        <div class="location-image">
+                            <img src="images/nagaokakyo.jpg" alt="長岡京市の風景" class="location-img" onerror="this.src='https://via.placeholder.com/350x250/ff6b6b/ffffff?text=長岡京市の風景'">
+                        </div>
+                    </div>
+                    <div class="location-content">
+                        <p>京都府長岡京市で生まれ育ちました。歴史と自然が豊かな素晴らしい街です！</p>
+                        <ul>
+                            <li>特徴: 京都と大阪の間にある便利な立地</li>
+                            <li>有名なもの: 竹林の道、長岡天満宮、筍（たけのこ）</li>
+                            <li>好きな場所: 長岡天満宮の梅園、西山公園</li>
+                            <li>思い出: 子供の頃よく家族と天満宮にお参りに行きました</li>
+                        </ul>
+                        <p>
+                            <a href="https://sense-nagaokakyo.city.nagaokakyo.lg.jp/" target="_blank" rel="noopener">
+                                🌐 長岡京市の公式サイトはこちら
+                            </a>
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="location-section">
-                    <h4>🌊 米子市（一時期住んでいた場所）</h4>
-                    <p>一時期、鳥取県米子市に住んでいました。自然豊かで食べ物が美味しい素敵な街です！</p>
-                    <ul>
-                        <li>特徴: 大山の麓にある自然豊かな街</li>
-                        <li>有名なもの: 大山、境港（ゲゲゲの鬼太郎）、美味しい海の幸</li>
-                        <li>好きだった場所: 大山の景色、境港の海</li>
-                        <li>思い出: 新鮮な海鮮料理と大山の雄大な景色が印象的でした</li>
-                        <li>学んだこと: 地方の魅力と人の温かさを実感</li>
-                    </ul>
-                    <p>
-                        <a href="https://www.city.yonago.lg.jp/" target="_blank" rel="noopener">
-                            米子市の公式サイトはこちら
-                        </a>
-                    </p>
+                    <div class="location-header">
+                        <h4>🌊 米子市（一時期住んでいた場所）</h4>
+                        <div class="location-image">
+                            <img src="images/yonago.jpg" alt="米子市の風景" class="location-img" onerror="this.src='https://via.placeholder.com/350x250/20b2aa/ffffff?text=米子市の風景'">
+                        </div>
+                    </div>
+                    <div class="location-content">
+                        <p>一時期、鳥取県米子市に住んでいました。自然豊かで食べ物が美味しい素敵な街です！</p>
+                        <ul>
+                            <li>特徴: 大山の麓にある自然豊かな街</li>
+                            <li>有名なもの: 大山、境港（ゲゲゲの鬼太郎）、美味しい海の幸</li>
+                            <li>好きだった場所: 大山の景色、境港の海</li>
+                            <li>思い出: 新鮮な海鮮料理と大山の雄大な景色が印象的でした</li>
+                            <li>学んだこと: 地方の魅力と人の温かさを実感</li>
+                        </ul>
+                        <p>
+                            <a href="https://www.city.yonago.lg.jp/" target="_blank" rel="noopener">
+                                🌐 米子市の公式サイトはこちら
+                            </a>
+                        </p>
+                    </div>
                 </div>
                 
                 <h3>趣味</h3>
-                <p>ゲームやアニメ映画鑑賞が好きです。特に以下の活動に熱中しています。</p>
+                <p>ゲームやアニメ映画鑑賞、音楽を聞いたりするのが好きです。特に以下の活動に熱中しています。</p>
                 
                 <div class="hobby-section">
-                    <h4>🧳 旅行</h4>
-                    <p>国内外問わず旅行が大好きです！</p>
-                    <ul>
-                        <li>今まで訪れた場所: 沖縄、北海道、韓国、台湾</li>
-                        <li>好きな旅行スタイル: 現地の食文化を楽しむグルメ旅行</li>
-                        <li>次に行きたい場所: ヨーロッパ（フランス、イタリア）</li>
-                        <li>旅行の楽しみ: 写真撮影と現地の人との交流</li>
-                    </ul>
+                    <div class="hobby-header">
+                        <h4>🧳 旅行</h4>
+                        <div class="hobby-image">
+                            <img src="images/travel.jpg" alt="旅行の思い出" class="hobby-img" onerror="this.src='https://via.placeholder.com/400x300/4a90e2/ffffff?text=旅行の写真'">
+                        </div>
+                    </div>
+                    <div class="hobby-content">
+                        <p>国内外問わず旅行が大好きです！</p>
+                        <ul>
+                            <li>今まで訪れた場所: 北は北海道から南は沖縄まで今まで様々な場所に行ってきました</li>
+                            <li>好きな旅行スタイル: 自然を感じられる場所での観光</li>
+                            <li>次に行きたい場所: ヨーロッパ（スイス、イタリア）</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="hobby-section">
-                    <h4>🏂 スノーボード</h4>
-                    <p>冬のスポーツとしてスノーボードを楽しんでいます！</p>
-                    <ul>
-                        <li>スノーボード歴: 約5年</li>
-                        <li>よく行くゲレンデ: 白馬、苗場、志賀高原</li>
-                        <li>好きなコース: 中級～上級の斜面</li>
-                        <li>目標: パウダースノーでの滑走をマスターすること</li>
-                        <li>スノーボード仲間: 友人たちと毎年2-3回はゲレンデへ</li>
-                    </ul>
+                    <div class="hobby-header">
+                        <h4>🏂 スノーボード</h4>
+                        <div class="hobby-image">
+                            <img src="images/snowboard.jpg" alt="スノーボードの写真" class="hobby-img" onerror="this.src='https://via.placeholder.com/400x300/87ceeb/ffffff?text=スノーボードの写真'">
+                        </div>
+                    </div>
+                    <div class="hobby-content">
+                        <p>冬のスポーツとしてスノーボードを楽しんでいます！</p>
+                        <ul>
+                            <li>スノーボード歴: 約5年</li>
+                            <li>よく行くゲレンデ: 白馬、志賀高原</li>
+                            <li>好きなコース: 中級～上級の斜面</li>
+                            <li>目標: パウダースノーでの滑走をマスターすること</li>
+                            <li>スノーボード仲間: 友人たちと毎年2-3回はゲレンデへ</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="hobby-section">
-                    <h4>🚗 ドライブ</h4>
-                    <p>車を運転するのが大好きで、自分で運転して色々な場所に行くのが趣味です！</p>
-                    <ul>
-                        <li>運転歴: 約6年</li>
-                        <li>好きなドライブコース: 海沿いの道、山道、高速道路</li>
-                        <li>よく行く場所: 琵琶湖、奈良公園、嵐山、神戸</li>
-                        <li>ドライブの楽しみ: 景色を見ながらの運転、道の駅での休憩</li>
-                        <li>目標: 日本全国をドライブで回ってみたい</li>
-                        <li>お気に入り: 音楽をかけながらの一人ドライブ</li>
-                    </ul>
+                    <div class="hobby-header">
+                        <h4>🚗 ドライブ</h4>
+                        <div class="hobby-image">
+                            <img src="images/drive.jpg" alt="ドライブの風景" class="hobby-img" onerror="this.src='https://via.placeholder.com/400x300/32cd32/ffffff?text=ドライブの写真'">
+                        </div>
+                    </div>
+                    <div class="hobby-content">
+                        <p>車を運転するのが大好きで、自分で運転して色々な場所に行くのが趣味です！</p>
+                        <ul>
+                            <li>運転歴: 約1年</li>
+                            <li>好きなドライブコース: 海沿いの道、山道、高速道路</li>
+                            <li>よく行く場所: 琵琶湖、奈良公園、嵐山、神戸</li>
+                            <li>ドライブの楽しみ: 景色を見ながらの運転、道の駅での休憩</li>
+                            <li>目標: 日本全国をドライブで回ってみたい</li>
+                            <li>お気に入り: 音楽をかけながらの一人ドライブ</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="hobby-section">
-                    <h4>🎣 釣り</h4>
-                    <p>自然の中で静かに過ごす釣りが好きです。心が落ち着く大切な時間です！</p>
-                    <ul>
-                        <li>釣り歴: 約3年</li>
-                        <li>好きな釣り: 川釣り、海釣り、バス釣り</li>
-                        <li>よく行く場所: 琵琶湖、由良川、淀川</li>
-                        <li>狙う魚: ブラックバス、ブルーギル、アジ、サバ</li>
-                        <li>釣りの楽しみ: 早朝の静寂、魚がかかった時の興奮</li>
-                        <li>思い出: 初めて大きなバスを釣った時の感動は忘れられません</li>
-                        <li>目標: 海釣りでもっと大きな魚を釣りたい</li>
-                    </ul>
+                    <div class="hobby-header">
+                        <h4>🎣 釣り</h4>
+                        <div class="hobby-image">
+                            <img src="images/fishing.jpg" alt="釣りの写真" class="hobby-img" onerror="this.src='https://via.placeholder.com/400x300/1e90ff/ffffff?text=釣りの写真'">
+                        </div>
+                    </div>
+                    <div class="hobby-content">
+                        <p>自然の中で静かに過ごす釣りが好きです。特に海釣りに魅力を感じています！</p>
+                        <ul>
+                            <li>釣り歴: 約5年</li>
+                            <li>好きな釣り: 海釣り（特に好き）、川釣り、バス釣り</li>
+                            <li>よく行く場所: 境港（鳥取）、舞鶴湾、大阪湾、琵琶湖</li>
+                            <li>海釣りで狙う魚: アジ、キス、サワラ、ヒラメ、メバル、ブリ、スズキ</li>
+                            <li>淡水での魚: ブラックバス、マス</li>
+                            <li>海釣りの楽しみ: 潮風を感じながらの釣り、新鮮な魚との出会い</li>
+                            <li>思い出: 米子にいた時に境港で初めて海釣りをして魅力に目覚めました</li>
+                            <li>目標: もっと大きな海の魚を釣り上げたい</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <h3>将来の目標</h3>

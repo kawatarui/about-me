@@ -9,21 +9,61 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="about.html">自己紹介</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">河田琉生</a>
+            </div>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav class="nav" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="about.html">自己紹介</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
+            <div class="background-animation">
+                <div class="floating-shapes">
+                    <div class="shape shape1"></div>
+                    <div class="shape shape2"></div>
+                    <div class="shape shape3"></div>
+                    <div class="shape shape4"></div>
+                    <div class="shape shape5"></div>
+                </div>
+            </div>
             <div class="hero-content">
-                <h1>河田琉生</h1>
-                <p class="subtitle">Web Developer</p>
-                <p>ようこそ、私の自己紹介サイトへ</p>
+                <div class="profile-circle">
+                    <img src="images/profile.jpg" alt="河田琉生" class="hero-profile-img">
+                </div>
+                <h1 class="animated-title">
+                    <span class="word">河</span>
+                    <span class="word">田</span>
+                    <span class="word">琉</span>
+                    <span class="word">生</span>
+                </h1>
+                <p class="subtitle typing-effect">Web Developer & Creative Mind</p>
+                <div class="intro-text">
+                    <p class="fade-in-text">ようこそ、私の世界へ</p>
+                    <p class="fade-in-text delayed">創造と技術の融合を目指して</p>
+                </div>
+                <div class="action-buttons">
+                    <a href="about.html" class="cta-button primary">自己紹介を見る</a>
+                    <a href="contact.html" class="cta-button secondary">お問い合わせ</a>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <p>Scroll to explore</p>
+                </div>
             </div>
         </section>
     </main>
